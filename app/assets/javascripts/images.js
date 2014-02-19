@@ -1,4 +1,9 @@
-
+// $(document).ready(function(){
+//     var i = Math.floor(Math.random()*images.length);
+//     var context = {img: images[i]};
+//     var $show_image = $(HandlebarsTemplates.template(context));
+//     $('#images').append($show_image);
+//   });
 
 
 $(function(){
@@ -8,22 +13,40 @@ $(function(){
   "https://github-camo.global.ssl.fastly.net/1fec18fa9c02a6607519bcadb880d2b5e87c0e91/687474703a2f2f36363661363538633632346133633033613662322d32356364613035396439373564326633313863303365393062636631376334302e7239322e6366312e7261636b63646e2e636f6d2f756e73706c6173685f353263326432616164313537365f312e4a5047"
   ];
 
-  for (var i=0;i<images.length;i++){
+  // for (var i=0;i<images.length;i++){
+  //   var context = {img: images[i]};
+  //   var $show_image = $(HandlebarsTemplates.template(context));
+  //   $('#images').append($show_image);
+  // }
+
+    var i = Math.floor(Math.random()*images.length);
     var context = {img: images[i]};
     var $show_image = $(HandlebarsTemplates.template(context));
     $('#images').append($show_image);
-  }
 
-  // var click = function(){
-  //   $('#button').click(alert('something'));
-  // };
 
   $('#button').click(function(){
-  
-  var img_src = $('#images div')[0].innerHTML;
-  alert(img_src);
+
+  var src = $('#images div img').attr('src');
+  var $show_src = $(HandlebarsTemplates.src({src: src}));
+  $('#displayLink').append($show_src);
 
   });
+
+  $('#shuffleImage').click(function(){
+    // $('#images').remove();
+
+    var i = Math.floor(Math.random()*images.length);
+    var context = {img: images[i]};
+    var $show_image = $(HandlebarsTemplates.template(context));
+
+    $('#images').append($show_image);
+
+    // $("#images").attr('src', $show_image);
+
+  });
+
+
 
 
 

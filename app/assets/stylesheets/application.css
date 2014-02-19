@@ -16,3 +16,11 @@
 img {
   width: 50%;
 }
+
+#src {
+  position:relative; 
+  width: 50%; 
+  float:left; 
+  word-wrap: break-word;
+  padding: 10px;
+}
